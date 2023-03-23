@@ -67,9 +67,9 @@ const Header = () => {
                             </Button>
                             <Button name="Login" className="btnList">
                                 <svg width="23" height="19" viewBox="0 0 23 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <line x1="1.28859" y1="-1.28859" x2="21.4117" y2="-1.28859" transform="matrix(-1 0 0 1 22.8438 3)" stroke="white" stroke-width="2.57719" stroke-linecap="round" />
-                                    <line x1="1.28859" y1="-1.28859" x2="11.543" y2="-1.28859" transform="matrix(-1 0 0 1 12.9766 10.7314)" stroke="white" stroke-width="2.57719" stroke-linecap="round" />
-                                    <line x1="1.28859" y1="-1.28859" x2="16.0288" y2="-1.28859" transform="matrix(-1 0 0 1 17.4531 18.4629)" stroke="white" stroke-width="2.57719" stroke-linecap="round" />
+                                    <line x1="1.28859" y1="-1.28859" x2="21.4117" y2="-1.28859" transform="matrix(-1 0 0 1 22.8438 3)" stroke="white" strokeWidth="2.57719" strokeLinecap="round" />
+                                    <line x1="1.28859" y1="-1.28859" x2="11.543" y2="-1.28859" transform="matrix(-1 0 0 1 12.9766 10.7314)" stroke="white" strokeWidth="2.57719" strokeLinecap="round" />
+                                    <line x1="1.28859" y1="-1.28859" x2="16.0288" y2="-1.28859" transform="matrix(-1 0 0 1 17.4531 18.4629)" stroke="white" strokeWidth="2.57719" strokeLinecap="round" />
                                 </svg>
                             </Button>
                             <CustomSelect>

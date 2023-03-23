@@ -8,5 +8,5 @@ export enum FormEnum {
     phone = 'Telefone',
     email = 'Email',
     condominium = 'Nome do condominio',
-  }
-  
+    message = "Mensagem"
+}

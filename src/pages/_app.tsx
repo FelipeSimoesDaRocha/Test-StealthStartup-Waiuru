@@ -12,6 +12,10 @@ import { useEffect } from 'react';
 // Translate
 import "../i18nextInit";
 
+// Suspense
+import { Suspense } from "react";
+
+
 export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps<{ session: Session }>) {
   useEffect(() => {
     if (localStorage.i18nextLng) {
@@ -27,8 +31,10 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SessionProvider session={session}>
-        <GlobalStyles />
-        <Component {...pageProps} />
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <GlobalStyles />
+          <Component {...pageProps} />
+        </Suspense>
       </SessionProvider>
     </>
   )

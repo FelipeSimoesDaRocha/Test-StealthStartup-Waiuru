@@ -1,10 +1,14 @@
+import { useState } from "react";
 import Image from "next/image";
 
 // Images
 import house from "../../../public/images/house.svg";
-import house1 from "../../../public/images/house1.svg";
+import house2 from "../../../public/images/house1.svg";
 import banner from "../../../public/images/banner.png";
 import bannerCloud from "../../../public/images/bannerCloud.svg";
+import bannerCloud2 from "../../../public/images/bannerCloud2.svg";
+import bannerForm from "../../../public/images/bannerForm.svg";
+
 
 import { FormEnum } from '../../models/index'
 
@@ -21,16 +25,19 @@ import {
   UiIntroSection
 } from "./styles";
 
-import { Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 
 const Hero = () => {
   const [form] = Form.useForm()
-
+  const [loading, setLoading] = useState(false)
 
   const onFinish = async () => {
+    setLoading(true)
+    alert("opa")
     try {
     } catch (error: any) {
     } finally {
+      setLoading(false)
     }
   }
 
@@ -41,13 +48,12 @@ const Hero = () => {
           <Container>
             <HeroIntro>
               <Image
-                style={{ position: "absolute", left: "-135px", top: "245px", zIndex: -1 }}
+                className="bannerCloud"
                 src={bannerCloud}
                 alt="banner"
                 width={181.83}
                 height={65.49}
               />
-
               <IntroMovie >
                 <PagePadding>
                   <Container>
@@ -80,12 +86,11 @@ const Hero = () => {
                     <IntroHeader>
                       <Image
                         style={{ position: "absolute", right: "250px", top: "200px", zIndex: -1 }}
-                        src={bannerCloud}
+                        src={bannerCloud2}
                         alt="banner"
                         width={181.83}
                         height={65.49}
                       />
-
                       <h1>
                         Reinvente seu jeito de <strong>morar.</strong>
                       </h1>
@@ -110,67 +115,84 @@ const Hero = () => {
               </IntroContent>
 
               <Image
-                style={{ position: "absolute", left: 0, bottom: "-15rem" }}
+                className="house1"
                 src={house}
                 alt="banner"
                 width={696}
-                height={269.76}
+                height={269}
               />
 
               <Image
-                style={{ position: "absolute", right: 0, bottom: "-15rem" }}
-                src={house1}
+                className="house2"
+                src={house2}
                 alt="banner"
-                width={521.54}
+                width={521}
                 height={315}
               />
             </HeroIntro>
-
-            <HeroIntro className="UiHeroIntro">
-              <UiIntroHeader>
-                <h1>
-                  Demo <strong>gratuita</strong>
-                </h1>
-                <div>
-                  <p>
-                    Faça parte do mundo waiuru, e descubra um universos de
-                    benefícios. Faça um teste Já!
-                  </p>
-                </div>
-              </UiIntroHeader>
-
-              <UiIntroSection>
-                <Image src={banner} alt="banner" width={727} height={754} />
-                <Form form={form} layout="vertical" onFinish={onFinish} scrollToFirstError={true}>
-                  <Form.Item
-                    name="name"
-                    label={FormEnum.name}
-                  >
-                    <Input maxLength={99} />
-                  </Form.Item>
-                  <Form.Item
-                    name="email"
-                    label={FormEnum.email}
-                  >
-                    <Input maxLength={99} />
-                  </Form.Item>
-                  <Form.Item
-                    name="phone"
-                    label={FormEnum.phone}
-                  >
-                    <Input maxLength={99} />
-                  </Form.Item>
-                  <Form.Item
-                    name="condominium"
-                    label={FormEnum.condominium}
-                  >
-                    <Input maxLength={99} />
-                  </Form.Item>
-                </Form>
-              </UiIntroSection>
-            </HeroIntro>
           </Container>
         </PagePadding>
+
+        <HeroIntro className="UiHeroIntro">
+          <UiIntroHeader>
+            <h1>
+              Demo <strong>gratuita</strong>
+            </h1>
+            <div>
+              <p>
+                Faça parte do mundo waiuru, e descubra um universos de
+                benefícios. Faça um teste Já!
+              </p>
+            </div>
+          </UiIntroHeader>
+
+          <UiIntroSection>
+            <Image className="bannerImg" src={banner} alt="banner" width={727} height={754} />
+            <Form form={form} layout="vertical" onFinish={onFinish} scrollToFirstError={true}>
+              <div className="formInner">
+                <Image src={bannerForm} alt="banner" className="banner1" />
+                <div className="innerContent">
+                  <h1>Acesse sua demo <strong>gratuita!</strong></h1>
+                  <div className="formItem">
+                    <Form.Item
+                      name="name"
+                      label={FormEnum.name}
+                    >
+                      <Input maxLength={99} />
+                    </Form.Item>
+                    <Form.Item
+                      name="email"
+                      label={FormEnum.email}
+                    >
+                      <Input maxLength={99} />
+                    </Form.Item>
+                    <Form.Item
+                      name="phone"
+                      label={FormEnum.phone}
+                    >
+                      <Input maxLength={99} />
+                    </Form.Item>
+                    <Form.Item
+                      name="condominium"
+                      label={FormEnum.condominium}
+                    >
+                      <Input maxLength={99} />
+                    </Form.Item>
+                  </div>
+                  <Form.Item
+                    name="message"
+                    label={FormEnum.message}
+                  >
+                    <Input maxLength={99} style={{ height: "169px", width: "100%" }} />
+                  </Form.Item>
+                </div>
+              </div>
+              <Button type="primary" htmlType="submit" className="form-button" disabled={loading}>
+                {!loading ? "Acesse já!" : "Carregando..."}
+              </Button>
+            </Form>
+          </UiIntroSection>
+        </HeroIntro>
       </Section>
     </>
   );
