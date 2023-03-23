@@ -17,6 +17,7 @@ import { Button } from "antd"
 import { signIn } from "next-auth/react";
 
 const Header = () => {
+    const [navbar, setNavBar] = useState(false);
     const [languageSelected, setLanguageSelected] = useState("pt");
     const { t, i18n } = useTranslation();
 
@@ -26,13 +27,18 @@ const Header = () => {
         localStorage.setItem("i18nextLng", lng);
     };
 
+    const handleChangeBackground = () => {
+        setNavBar(window.scrollY >= 80);
+    };
+
     useEffect(() => {
+        window.addEventListener("scroll", handleChangeBackground);
         const item = `${localStorage.getItem('i18nextLng')}`;
         setLanguageSelected(item);
     }, []);
 
     return (
-        <Nav>
+        <Nav className={navbar ? `${"navActive"}` : `${"nav"}`}>
             <PagePadding>
                 <Container>
                     <NavInner>

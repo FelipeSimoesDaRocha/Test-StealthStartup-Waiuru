@@ -1,14 +1,33 @@
 import styled from "styled-components";
 
 export const Nav = styled.nav`
-  position: fixed;
-  left: 0;
-  top: 50px;
-  right: 0;
-  bottom: auto;
-  z-index: 100;
-  background-color: transparent;
-  transition: background-color 1.2s;
+  &.nav,
+  &.navActive {
+    position: fixed;
+    left: 0;
+    top: 50px;
+    right: 0;
+    bottom: auto;
+    z-index: 100;
+    background-color: transparent;
+    transition: all 1.2s;
+    padding: 1.4rem 0;
+  }
+
+  &.navActive {
+    top: 0;
+    transition: all 1s;
+    background-color: hsla(0, 0%, 100%, 0.7);
+    backdrop-filter: blur(1px);
+    box-shadow: 0px 8px 10px 3px #0000001a;
+  }
+
+  @media screen and (max-width: 1200px) {
+    &.nav,
+    &.navActive {
+      top: 0;
+    }
+  }
 `;
 
 export const PagePadding = styled.div`

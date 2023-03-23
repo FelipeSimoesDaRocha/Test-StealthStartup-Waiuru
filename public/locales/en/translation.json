@@ -1,13 +1,3 @@
 {
-  "hero": {
-    "Hello": "Hello",
-    "label": "I' am",
-    "text": "My passion is dreaming up ideas and making them come true with elegant interfaces.",
-    "blockquote": "Always looking for the next level.",
-    "Signin": "Sign-in",
-    "Signout": "Sign-out"
-  },
-  "work": {
-    "label": "A small selection of my work."
-  }
+
 }
